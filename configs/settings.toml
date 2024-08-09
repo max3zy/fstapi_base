@@ -1,0 +1,31 @@
+[default]
+    IS_PRODUCTION = false
+    URL_ROOT_PATH = '/'  # Переопределяется при использовании reverse-proxy
+    METRICS_ENABLED = true
+
+    LOGGER_CONFIG = "configs/log_cfg.yaml"
+    ENCODING = "utf-8"
+
+    PATH_TO_MODELS = 'artifacts/models'
+    CLASSIFIER_ONNX_MODEL = 'ru-bert.onnx'
+    THRESHOLD = 0.5
+
+    RUN_SERVER_COMMAND = "main:app_factory"
+    RUN_SERVER_HOST = "0.0.0.0"
+    RUN_SERVER_PORT = 10009
+    RUN_SERVER_ACCESS_LOG = true
+    RUN_SERVER_LOG_LEVEL = "info"
+    RUN_SERVER_FACTORY = true
+    RUN_SERVER_DEBUG_RELOAD = true
+
+    SERVICE_TITLE = "test-llm-service"
+    SERVICE_DESCRIPTION = "fastapi test project"
+    SERVICE_VERSION = "0.1.0"
+
+[K8S_DEV]
+
+[K8S_DEV01]
+
+[K8S_DEV02]
+
+[K8S_UAT]
