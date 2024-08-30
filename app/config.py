@@ -8,3 +8,5 @@ settings = Dynaconf(
     load_dotenv=False,
     merge_enabled=True,
 )
+
+MODEL_PARAMS = dict(**settings.TRANSLATOR)

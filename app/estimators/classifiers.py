@@ -1,5 +1,17 @@
 import numpy as np
-from app.estimators.loaders import OnnxLoader
+from app.estimators.loaders import OnnxLoader, TrivialLoader
+
+
+class TranslatorHlsnk:
+    def __init__(self, loader: TrivialLoader):
+        self.tokenizer = loader.tokenizer
+        self.model = loader.model
+
+    def predict(self, query: str) -> str:
+        input_ids = self.tokenizer.encode(query, return_tensors="pt")
+        outputs = self.model.generate(input_ids)
+        decoded_answer = self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        return decoded_answer
 
 
 class ClassifierRuBert:

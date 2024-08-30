@@ -6,7 +6,33 @@ from onnxruntime import (
     SessionOptions,
     get_all_providers,
 )
-from transformers import BertTokenizerFast
+from transformers import BertTokenizerFast, AutoTokenizer, AutoModelForSeq2SeqLM
+
+
+class TrivialLoader:
+    def __init__(
+            self,
+            path_to_tokenizer: str,
+            path_to_model: str
+    ):
+        self.tokenizer = self.load_tokenizer(path_to_tokenizer)
+        self.model = self.load_model(path_to_model)
+
+    @staticmethod
+    def load_tokenizer(path_to_tokenizer: str) -> AutoTokenizer:
+        tokenizer_path = os.path.join(path_to_tokenizer, "tokenzr")
+        tokenizer = AutoTokenizer.from_pretrained(
+            tokenizer_path, local_files_only=True
+        )
+        return tokenizer
+
+    @staticmethod
+    def load_model(path_to_models: str) -> AutoModelForSeq2SeqLM:
+        model_path = os.path.join(path_to_models, "model")
+        model = AutoModelForSeq2SeqLM.from_pretrained(
+            model_path, local_files_only=True
+        )
+        return model
 
 
 class OnnxLoader:

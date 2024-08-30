@@ -14,9 +14,9 @@ class TrivialStrategy(AbstractStrategyPrediction):
     def process(self, strategy_in: StrategyIn) -> StrategyOut:
         return StrategyOut(
             query=strategy_in.query,
-            classify_score=strategy_in.classify_score,
+            translation=strategy_in.translation
         )
 
 
 def create_answer(strategy_output: StrategyOut) -> ClassifyResponse:
-    return ClassifyResponse(classify_score=strategy_output.classify_score)
+    return ClassifyResponse(translation=strategy_output.translation)

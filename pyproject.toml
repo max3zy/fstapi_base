@@ -3,8 +3,7 @@ name = "test-llm-service"
 version = "0.1.0"
 description = "fastapi test project"
 authors = [
-    "artem.bardakov <artem.bardakov@rtlabs.ru>",
-    "denis.pimenov <denis.pimenov@rtlabs.ru>"
+    "m.k."
 ]
 readme = "README.md"
 packages = []
@@ -15,10 +14,11 @@ fastapi = "^0.92.0"
 dynaconf = "^3.1.11"
 uvicorn = "^0.20.0"
 pyaml = "^21.10.1"
-dictionary-lib = "~0.1"
 dependency-injector = "^4.41.0"
 onnxruntime = "^1.17.1"
 transformers = "^4.39.3"
+sentencepiece = "0.2.0"
+torch = "2.4.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"
@@ -33,10 +33,6 @@ bandit = "^1.7.4"
 httpx = "^0.23.3"
 dvc-s3 = "^2.21.0"
 
-[[tool.poetry.source]]
-name = "nexus"
-url = "https://nexus3.00.egov.local/repository/da-group/simple"
-priority = "supplemental"
 
 [[tool.poetry.source]]
 name = "PyPI"

@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 
 
 class ClassifyResponse(BaseModel):
-    classify_score: float = Field(
+    translation: str = Field(
         ...,
-        description="Все варианты для дополнения текста пользователя",
+        description="translation",
     )
